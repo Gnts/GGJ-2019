@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
             sb.Append("Interaction hits: ");
             foreach (var hit in hits)
             {
-                sb.Append(hit.collider.name + ', ');
+                sb.Append(hit.collider.name + ", ");
             }
             Debug.Log(sb);
         }
