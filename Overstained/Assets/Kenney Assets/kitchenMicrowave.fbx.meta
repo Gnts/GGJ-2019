@@ -17,7 +17,27 @@ ModelImporter:
     3300002: //RootNode
     4300000: kitchenMicrowave
     4300002: Group
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: carpetWhite
+    second: {fileID: 2100000, guid: a7a9e0b909eb19a48b158256100c591e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glass
+    second: {fileID: 2100000, guid: d4bcf333b22315947bdf1d298f1540f2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metalDark
+    second: {fileID: 2100000, guid: e2a921027b37ce84296613c277ae7f26, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: metalMedium
+    second: {fileID: 2100000, guid: d1772b7239da46643ac1be7bc7328068, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
