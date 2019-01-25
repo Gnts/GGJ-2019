@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private CharacterJoint grabJoint;
     private Vector3 currentdirection = Vector3.forward;
     [HideInInspector]
-    public GameObject target;
+    public Pickable target;
 
     void Awake()
     {
@@ -50,39 +50,82 @@ public class PlayerMovement : MonoBehaviour
     void Interact()
     {
         Debug.Log("[Player] Interact!");
+        var hits = GetHits();
 
         if (target != null)
         {
+
+            foreach (var hit in hits)
+            {
+                var dp = hit.collider.GetComponent<DeliveryPoint>();
+                if (dp != null && dp.type == target.type)
+                {
+                    DeliverTarget(dp);
+                    return;
+                }
+            }
+
             DropTarget();
             return;
         }
 
-        var castCenter = t.position + currentdirection + Vector3.up;
-        var hits = Physics.BoxCastAll(castCenter, new Vector3(1.5F, 2, 1.5F) / 2f, transform.forward, transform.rotation, 0.01f, hitLayer);
+        foreach (var hit in hits)
+        {
+            if (hit.collider.GetComponent<Pickable>() != null)
+                TakeTarget(hit);
+        }
+
         if (hits.Length > 0)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("Interaction hits: ");
             foreach (var hit in hits)
             {
-                TakeTarget(hit);
+                if (hit.collider.GetComponent<Pickable>() != null)
+                    TakeTarget(hit);
                 sb.Append(hit.collider.name + ", ");
             }
             Debug.Log(sb);
         }
     }
 
+    RaycastHit[] GetHits()
+    {
+        var castCenter = t.position + currentdirection + Vector3.up;
+        var hits = Physics.BoxCastAll(castCenter, new Vector3(1.5F, 2, 1.5F) / 2f, transform.forward, transform.rotation, 0.01f, hitLayer);
+
+        StringBuilder sb = new StringBuilder();
+        sb.Append("Interaction hits: ");
+        foreach (var hit in hits)
+            sb.Append(hit.collider.name + ", ");
+        Debug.Log(sb);
+
+        return hits;
+    }
+
     void DropTarget()
     {
+        Debug.Log("[Player] Drop item: " + target.name);
         grabJoint.connectedBody = null;
         target = null;
     }
 
     void TakeTarget(RaycastHit hit)
     {
+        Debug.Log("[Player] Take item: " + hit.collider.name);
         grabJoint.connectedBody = hit.rigidbody;
-        target = hit.collider.gameObject;
+        target = hit.collider.GetComponent<Pickable>();
+    }
 
+    void DeliverTarget(DeliveryPoint dp)
+    {
+        Debug.Log("[Player] Delivered current target of type: " + dp.type);
+        var targetObject = target.gameObject;
+        // @TODO - award points
+
+        grabJoint.connectedBody = null;
+        target = null;
+        Destroy(targetObject);
     }
 
     void OnDrawGizmos()
