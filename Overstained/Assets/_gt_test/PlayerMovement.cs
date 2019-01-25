@@ -13,7 +13,10 @@ public class PlayerMovement : MonoBehaviour
     private float interactionOffset = 1f;
     [SerializeField]
     private LayerMask hitLayer;
-    private Vector3 currentdirection = Vector3.zero;
+    [SerializeField]
+    private SpringJoint grabJoint;
+    private Vector3 currentdirection = Vector3.forward;
+    public GameObject target;
 
     void Awake()
     {
@@ -21,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
         t = transform;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         var horizontal = Input.GetAxisRaw("Horizontal");
         var vertical = Input.GetAxisRaw("Vertical");
@@ -31,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         if (!(horizontal == 0 && vertical == 0))
             currentdirection = direction;
 
+        grabJoint.transform.position = t.position + currentdirection + Vector3.up * 2;
 
         var move = direction * speed * Time.deltaTime;
         rb.MovePosition(t.position + move);
@@ -45,20 +49,39 @@ public class PlayerMovement : MonoBehaviour
     void Interact()
     {
         Debug.Log("[Player] Interact!");
+
+        if (target != null)
+        {
+            DropTarget();
+            return;
+        }
+
         var castCenter = t.position + currentdirection + Vector3.up;
-
-
-        var hits = Physics.BoxCastAll(castCenter, new Vector3(1.5F, 2, 1.5F)/2f, transform.forward, transform.rotation, 0.01f, hitLayer);
+        var hits = Physics.BoxCastAll(castCenter, new Vector3(1.5F, 2, 1.5F) / 2f, transform.forward, transform.rotation, 0.01f, hitLayer);
         if (hits.Length > 0)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("Interaction hits: ");
             foreach (var hit in hits)
             {
+                TakeTarget(hit);
                 sb.Append(hit.collider.name + ", ");
             }
             Debug.Log(sb);
         }
+    }
+
+    void DropTarget()
+    {
+        grabJoint.connectedBody = null;
+        target = null;
+    }
+
+    void TakeTarget(RaycastHit hit)
+    {
+        grabJoint.connectedBody = hit.rigidbody;
+        target = hit.collider.gameObject;
+
     }
 
     void OnDrawGizmos()
