@@ -14,8 +14,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private LayerMask hitLayer;
     [SerializeField]
-    private SpringJoint grabJoint;
+    private CharacterJoint grabJoint;
     private Vector3 currentdirection = Vector3.forward;
+    [HideInInspector]
     public GameObject target;
 
     void Awake()
@@ -89,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
         if (Application.isPlaying)
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawCube(t.position + currentdirection + Vector3.up, new Vector3(1.5F, 2, 1.5F));
+            Gizmos.DrawWireCube(t.position + currentdirection + Vector3.up, new Vector3(1.5F, 2, 1.5F));
         }
     }
 }
