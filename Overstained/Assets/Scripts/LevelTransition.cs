@@ -24,5 +24,6 @@ public class LevelTransition : MonoBehaviour
 
         // Example test :D this will just load the next scene under build settings
         // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        UI.instance.transitionTimer.text = "WE SHOULD CHANGE LEVEL. MATT HAS NOT IMPLEMENTED THIS YET!";
     }
 }
