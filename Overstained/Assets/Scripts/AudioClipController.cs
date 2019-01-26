@@ -53,7 +53,8 @@ public class AudioClipController : MonoBehaviour
             return instance.actionClip;
         }
 
-        throw new Exception("Audio clip not implemented: " + pickableType + '-' + clipType);
+        Debug.LogWarning("Audio clip not implemented: " + pickableType + '-' + clipType);
+        return instance.actionClip;
     }
 
 }
