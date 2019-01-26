@@ -51,7 +51,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1532c7e67c2d60c4c8780da14b7e8fcf, type: 3}
   audioSource: {fileID: 4551268538525273122}
   timePlaying: 0
-  maxTime: 3
+  maxTime: 30
   index: 0
 --- !u!82 &4551268538525273122
 AudioSource:
