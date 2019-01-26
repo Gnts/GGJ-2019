@@ -9,6 +9,9 @@ public class UI : MonoBehaviour
     public static UI instance;
     public TextMeshProUGUI activeItemText;
     public TextMeshProUGUI scoreText;
+    public GameObject win;
+    public GameObject defeat;
+    public GameObject timer;
 
     void OnEnable()
     {
