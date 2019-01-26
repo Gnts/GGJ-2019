@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private Transform t;
     private PlayerAudioController audio;
+    private AudioSource stepsSource;
+
     [SerializeField]
     private Transform model;
 
@@ -30,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         t = transform;
         audio = GetComponent<PlayerAudioController>();
+        stepsSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -42,7 +45,15 @@ public class PlayerMovement : MonoBehaviour
         if (!(horizontal == 0 && vertical == 0))
         {
             currentdirection = direction;
+
             RotateCharacter(currentdirection);
+            if (!stepsSource.isPlaying)
+                stepsSource.Play();
+        }
+        else
+        {
+            if (stepsSource.isPlaying)
+                stepsSource.Stop();
         }
 
         grabJoint.transform.position = t.position + currentdirection + Vector3.up * 2;
