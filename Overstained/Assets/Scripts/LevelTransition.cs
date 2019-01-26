@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 public class LevelTransition : MonoBehaviour
 {
     public float transitionTime = 5f;
+
+    void Start()
+    {
+        UI.instance.transitionTimer.gameObject.SetActive(true);
+    }
+
     void Update()
     {
         transitionTime -= Time.deltaTime;
