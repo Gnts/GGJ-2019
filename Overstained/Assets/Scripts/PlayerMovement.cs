@@ -47,12 +47,12 @@ public class PlayerMovement : MonoBehaviour
 
         grabJoint.transform.position = t.position + currentdirection + Vector3.up * 2;
 
-        Vector3 move;
+        float diagonalModifier = 1;
         if (horizontal == 1 && vertical == 1)
-            move = direction * 0.707f * speed * Time.deltaTime;
-        else
-            move = direction * speed * Time.deltaTime;
-        rb.MovePosition(t.position + move);
+            diagonalModifier = diagonalModifier * 0.707f;
+
+        var velocity = direction * speed * diagonalModifier;
+        rb.velocity = velocity;
 
         if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.Space))
         {

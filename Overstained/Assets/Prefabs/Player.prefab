@@ -460,7 +460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 6082372759343186796}
-  speed: 24
+  speed: 10
   interactionOffset: 1
   hitLayer:
     serializedVersion: 2
@@ -476,12 +476,12 @@ Rigidbody:
   m_GameObject: {fileID: 6849730326744598617}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 99
+  m_Drag: 1
   m_AngularDrag: 99
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 116
   m_CollisionDetection: 1
 --- !u!136 &5220001955427935566
 CapsuleCollider:
