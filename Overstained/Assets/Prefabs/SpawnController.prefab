@@ -47,3 +47,4 @@ MonoBehaviour:
   spawnPoints: []
   prefabs:
   - {fileID: 5427741559881704952, guid: 15dbd94fdf77d1645be1264342eee3d2, type: 3}
+  - {fileID: 6983818577471902513, guid: 23a391e78a09a8b4996abb6705bd7da1, type: 3}
