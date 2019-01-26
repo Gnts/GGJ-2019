@@ -15,4 +15,13 @@ public class PlayerAudioController : MonoBehaviour
         audioSource.Play();
         Destroy(obj, 1f);
     }
+
+    public void PlayClip(AudioClip clip)
+    {
+        var obj = Instantiate(sfxObj, this.transform);
+        var audioSource = obj.GetComponent<AudioSource>();
+        audioSource.clip = clip;
+        audioSource.Play();
+        Destroy(obj, 1f);
+    }
 }

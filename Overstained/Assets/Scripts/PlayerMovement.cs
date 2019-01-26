@@ -107,27 +107,30 @@ public class PlayerMovement : MonoBehaviour
 
     void DropTarget()
     {
-        audio.PlayClipAction();
         Debug.Log("[Player] Drop item: " + target.name);
+        var clipToPlay = AudioClipController.GetClip(ClipType.Drop, target.type);
+        audio.PlayClip(clipToPlay);
         grabJoint.connectedBody = null;
         target = null;
     }
 
     void TakeTarget(RaycastHit hit)
     {
-        audio.PlayClipAction();
         Debug.Log("[Player] Take item: " + hit.collider.name);
         grabJoint.connectedBody = hit.rigidbody;
         target = hit.collider.GetComponent<Pickable>();
+        var clipToPlay = AudioClipController.GetClip(ClipType.PickUp, target.type);
+        audio.PlayClip(clipToPlay);
     }
 
     void DeliverTarget(DeliveryPoint dp)
     {
-        audio.PlayClipAction();
+
         Debug.Log("[Player] Delivered current target of type: " + dp.type);
         var targetObject = target.gameObject;
         // @TODO - award points
-
+        var clipToPlay = AudioClipController.GetClip(ClipType.Deliver, target.type);
+        audio.PlayClip(clipToPlay);
         grabJoint.connectedBody = null;
         target = null;
         Destroy(targetObject);
