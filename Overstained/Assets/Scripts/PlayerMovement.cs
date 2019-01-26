@@ -131,6 +131,7 @@ public class PlayerMovement : MonoBehaviour
         // @TODO - award points
         var clipToPlay = AudioClipController.GetClip(ClipType.Deliver, target.type);
         audio.PlayClip(clipToPlay);
+        ScoreController.AddScore(target.score);
         grabJoint.connectedBody = null;
         target = null;
         Destroy(targetObject);

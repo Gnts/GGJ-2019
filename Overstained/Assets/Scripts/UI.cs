@@ -8,6 +8,7 @@ public class UI : MonoBehaviour
     [HideInInspector]
     public static UI instance;
     public TextMeshProUGUI activeItemText;
+    public TextMeshProUGUI scoreText;
 
     void OnEnable()
     {
