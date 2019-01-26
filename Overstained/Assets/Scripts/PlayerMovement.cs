@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody rb;
     private Transform t;
+    private PlayerAudioController audio;
     [SerializeField]
     private float speed = 7f;
     [SerializeField]
@@ -21,8 +22,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Awake()
     {
-        rb = gameObject.GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         t = transform;
+        audio = GetComponent<PlayerAudioController>();
     }
 
     void FixedUpdate()
@@ -105,6 +107,7 @@ public class PlayerMovement : MonoBehaviour
 
     void DropTarget()
     {
+        audio.PlayClipAction();
         Debug.Log("[Player] Drop item: " + target.name);
         grabJoint.connectedBody = null;
         target = null;
@@ -112,6 +115,7 @@ public class PlayerMovement : MonoBehaviour
 
     void TakeTarget(RaycastHit hit)
     {
+        audio.PlayClipAction();
         Debug.Log("[Player] Take item: " + hit.collider.name);
         grabJoint.connectedBody = hit.rigidbody;
         target = hit.collider.GetComponent<Pickable>();
@@ -119,6 +123,7 @@ public class PlayerMovement : MonoBehaviour
 
     void DeliverTarget(DeliveryPoint dp)
     {
+        audio.PlayClipAction();
         Debug.Log("[Player] Delivered current target of type: " + dp.type);
         var targetObject = target.gameObject;
         // @TODO - award points
