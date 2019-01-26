@@ -128,8 +128,8 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("[Player] Drop item: " + target.name);
         var clipToPlay = AudioClipController.GetClip(ClipType.Drop, target.type);
         audio.PlayClip(clipToPlay);
-        target.GetComponent<Collider>().isTrigger = false;
         grabJoint.connectedBody = null;
+        target.GetComponent<Collider>().isTrigger = false;
         target = null;
     }
 
@@ -138,6 +138,7 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("[Player] Take item: " + hit.collider.name);
         grabJoint.connectedBody = hit.rigidbody;
         target = hit.collider.GetComponent<Pickable>();
+        target.transform.position = transform.position + Vector3.up * 2 + currentdirection;
         target.GetComponent<Collider>().isTrigger = true;
         var clipToPlay = AudioClipController.GetClip(ClipType.PickUp, target.type);
         audio.PlayClip(clipToPlay);
@@ -148,7 +149,6 @@ public class PlayerMovement : MonoBehaviour
 
         Debug.Log("[Player] Delivered current target of type: " + dp.type);
         var targetObject = target.gameObject;
-        // @TODO - award points
         var clipToPlay = AudioClipController.GetClip(ClipType.Deliver, target.type);
         audio.PlayClip(clipToPlay);
         ScoreController.AddScore(target.score);

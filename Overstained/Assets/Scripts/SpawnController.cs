@@ -21,7 +21,7 @@ public class SpawnController : MonoBehaviour
     {
         foreach(var t in spawnPoints)
         {
-            Instantiate(prefabs[Random.Range(0, prefabs.Length)], t);
+            Instantiate(prefabs[Random.Range(0, prefabs.Length)], t.position, Quaternion.Euler(-90, 0, 0));
         }
     }
 
