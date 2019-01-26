@@ -11,6 +11,10 @@ public class AudioClipController : MonoBehaviour
     public AudioClip dishesDeliver;
     public AudioClip dishesDrop;
 
+    public AudioClip clothesPickup;
+    public AudioClip clothesDeliver;
+    public AudioClip clothesDrop;
+
     void OnEnable()
     {
         instance = this;
@@ -23,14 +27,24 @@ public class AudioClipController : MonoBehaviour
 
     public static AudioClip GetClip(ClipType clipType, Pickable.Type pickableType)
     {
-        if(pickableType == Pickable.Type.Dishes)
+        if (pickableType == Pickable.Type.Dishes)
         {
-            if(clipType == ClipType.Deliver)
+            if (clipType == ClipType.Deliver)
                 return instance.dishesDeliver;
-            if(clipType == ClipType.PickUp)
+            if (clipType == ClipType.PickUp)
                 return instance.dishesPickup;
-            if(clipType == ClipType.Drop)
+            if (clipType == ClipType.Drop)
                 return instance.dishesDrop;
+        }
+
+        if (pickableType == Pickable.Type.Clothes)
+        {
+            if (clipType == ClipType.Deliver)
+                return instance.clothesDeliver;
+            if (clipType == ClipType.PickUp)
+                return instance.clothesPickup;
+            if (clipType == ClipType.Drop)
+                return instance.clothesDrop;
         }
 
         throw new Exception("Audio clip not implemented: " + pickableType + '-' + clipType);

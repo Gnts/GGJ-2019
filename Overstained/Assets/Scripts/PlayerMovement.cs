@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using UnityEngine;
 
@@ -8,6 +9,9 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private Transform t;
     private PlayerAudioController audio;
+    [SerializeField]
+    private Transform model;
+
     [SerializeField]
     private float speed = 7f;
     [SerializeField]
@@ -35,7 +39,10 @@ public class PlayerMovement : MonoBehaviour
         var direction = new Vector3(horizontal, 0, vertical);
 
         if (!(horizontal == 0 && vertical == 0))
+        {
             currentdirection = direction;
+            RotateCharacter(currentdirection);
+        }
 
         grabJoint.transform.position = t.position + currentdirection + Vector3.up * 2;
 
@@ -47,6 +54,11 @@ public class PlayerMovement : MonoBehaviour
             Interact();
         }
 
+    }
+
+    void RotateCharacter(Vector3 direction)
+    {
+        model.rotation = Quaternion.LookRotation(direction);
     }
 
     void Interact()
@@ -94,7 +106,13 @@ public class PlayerMovement : MonoBehaviour
     RaycastHit[] GetHits()
     {
         var castCenter = t.position + currentdirection + Vector3.up;
-        var hits = Physics.BoxCastAll(castCenter, new Vector3(1.5F, 2, 1.5F) / 2f, transform.forward, transform.rotation, 0.01f, hitLayer);
+        var playerCenter = t.position + Vector3.up;
+        var hits = Physics.BoxCastAll(castCenter, new Vector3(3F, 2, 3F) / 2f, transform.forward, transform.rotation, 0.01f, hitLayer);
+        var hits2 = Physics.BoxCastAll(playerCenter, new Vector3(2.6F, 2, 2.6F) / 2f, transform.forward, transform.rotation, 0.01f, hitLayer);
+
+        var list = hits.ToList();
+        list.AddRange(hits2);
+        hits = list.ToArray();
 
         StringBuilder sb = new StringBuilder();
         sb.Append("Interaction hits: ");
@@ -142,7 +160,9 @@ public class PlayerMovement : MonoBehaviour
         if (Application.isPlaying)
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawWireCube(t.position + currentdirection + Vector3.up, new Vector3(1.5F, 2, 1.5F));
+            Gizmos.DrawWireCube(t.position + currentdirection + Vector3.up, new Vector3(3F, 2, 3F));
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireCube(t.position + Vector3.up, new Vector3(2.6F, 2, 2.6F));
         }
     }
 }
