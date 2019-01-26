@@ -15,6 +15,8 @@ public class Pickable : MonoBehaviour
 
     [SerializeField]
     public Type type;
+    [SerializeField]
+    public int score;
 }
 
 
