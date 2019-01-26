@@ -18,6 +18,7 @@ public class WinController : MonoBehaviour
             Win();
 
         UI.instance.timer.GetComponent<TextMeshProUGUI>().text = "Time left: " + timer.ToString("0");
+        UI.instance.itemsLeft.text = "Items to clean up: " + Pickable.pickables.Count;
     }
 
     public void Win()

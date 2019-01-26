@@ -12,6 +12,7 @@ public class UI : MonoBehaviour
     public GameObject win;
     public GameObject defeat;
     public GameObject timer;
+    public TextMeshProUGUI itemsLeft;
 
     void OnEnable()
     {
