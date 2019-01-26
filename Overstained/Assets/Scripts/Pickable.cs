@@ -24,11 +24,15 @@ public class Pickable : MonoBehaviour
 
     public void OnEnable()
     {
+        if(type == Type.None) return;
+
         pickables.Add(this);
     }
 
     public void OnDisable()
     {
+        if(type == Type.None) return;
+
         pickables.Remove(this);
     }
 }

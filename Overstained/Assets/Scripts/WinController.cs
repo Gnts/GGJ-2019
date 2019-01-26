@@ -14,10 +14,10 @@ public class WinController : MonoBehaviour
 
         if (timer < 0.001f)
             Lost();
-        if (Pickable.pickables.Count < 0.001f)
+        if (Pickable.pickables.Count < 1)
             Win();
 
-            UI.instance.timer.GetComponent<TextMeshProUGUI>().text = "Time left: " + timer.ToString("0");
+        UI.instance.timer.GetComponent<TextMeshProUGUI>().text = "Time left: " + timer.ToString("0");
     }
 
     public void Win()
