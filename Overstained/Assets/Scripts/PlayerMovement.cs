@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -46,12 +47,21 @@ public class PlayerMovement : MonoBehaviour
 
         grabJoint.transform.position = t.position + currentdirection + Vector3.up * 2;
 
-        var move = direction * speed * Time.deltaTime;
+        Vector3 move;
+        if (horizontal == 1 && vertical == 1)
+            move = direction * 0.707f * speed * Time.deltaTime;
+        else
+            move = direction * speed * Time.deltaTime;
         rb.MovePosition(t.position + move);
 
         if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.Space))
         {
             Interact();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
     }
@@ -129,7 +139,6 @@ public class PlayerMovement : MonoBehaviour
         var clipToPlay = AudioClipController.GetClip(ClipType.Drop, target.type);
         audio.PlayClip(clipToPlay);
         grabJoint.connectedBody = null;
-        target.GetComponent<Collider>().isTrigger = false;
         target = null;
     }
 
@@ -139,7 +148,6 @@ public class PlayerMovement : MonoBehaviour
         grabJoint.connectedBody = hit.rigidbody;
         target = hit.collider.GetComponent<Pickable>();
         target.transform.position = transform.position + Vector3.up * 2 + currentdirection;
-        target.GetComponent<Collider>().isTrigger = true;
         var clipToPlay = AudioClipController.GetClip(ClipType.PickUp, target.type);
         audio.PlayClip(clipToPlay);
     }
