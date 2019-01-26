@@ -14,6 +14,7 @@ public class AudioClipController : MonoBehaviour
     public AudioClip clothesPickup;
     public AudioClip clothesDeliver;
     public AudioClip clothesDrop;
+    public AudioClip actionClip;
 
     void OnEnable()
     {
@@ -45,6 +46,11 @@ public class AudioClipController : MonoBehaviour
                 return instance.clothesPickup;
             if (clipType == ClipType.Drop)
                 return instance.clothesDrop;
+        }
+
+        if (pickableType == Pickable.Type.None)
+        {
+            return instance.actionClip;
         }
 
         throw new Exception("Audio clip not implemented: " + pickableType + '-' + clipType);

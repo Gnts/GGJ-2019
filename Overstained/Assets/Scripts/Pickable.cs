@@ -10,7 +10,8 @@ public class Pickable : MonoBehaviour
     {
         Trash,
         Dishes,
-        Clothes
+        Clothes,
+        None
     }
 
     [SerializeField]

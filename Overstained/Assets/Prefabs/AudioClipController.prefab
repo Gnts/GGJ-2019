@@ -46,3 +46,7 @@ MonoBehaviour:
   dishesPickup: {fileID: 8300000, guid: 42b5561fba3bd0a439d2916d70784058, type: 3}
   dishesDeliver: {fileID: 8300000, guid: 42b5561fba3bd0a439d2916d70784058, type: 3}
   dishesDrop: {fileID: 8300000, guid: 42b5561fba3bd0a439d2916d70784058, type: 3}
+  clothesPickup: {fileID: 8300000, guid: 42b5561fba3bd0a439d2916d70784058, type: 3}
+  clothesDeliver: {fileID: 8300000, guid: 42b5561fba3bd0a439d2916d70784058, type: 3}
+  clothesDrop: {fileID: 8300000, guid: 42b5561fba3bd0a439d2916d70784058, type: 3}
+  actionClip: {fileID: 8300000, guid: 42b5561fba3bd0a439d2916d70784058, type: 3}
