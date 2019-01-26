@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         audio = GetComponent<PlayerAudioController>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         var horizontal = Input.GetAxisRaw("Horizontal");
         var vertical = Input.GetAxisRaw("Vertical");
