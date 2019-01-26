@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1053680281}
   - component: {fileID: 1053680278}
   - component: {fileID: 1053680277}
-  - component: {fileID: 1053680279}
   - component: {fileID: 1053680280}
   m_Layer: 0
   m_Name: tableCoffeeGlass
@@ -29,9 +28,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1053680276}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.7598076, y: -11.547518, z: 6.283233}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 0.375, y: 0.375, z: 0.375}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -90,7 +89,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1053680276}
   serializedVersion: 2
-  m_Mass: 5
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -111,21 +110,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6.609961, y: 2.3, z: 4}
   m_Center: {x: -1.3049805, y: 1.15, z: 1}
---- !u!114 &1053680279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1053680276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dd48ce48776f6b40baefaeaa0110bd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 3
-  score: 0
-  displayName: 
 --- !u!114 &1053680280
 MonoBehaviour:
   m_ObjectHideFlags: 0
