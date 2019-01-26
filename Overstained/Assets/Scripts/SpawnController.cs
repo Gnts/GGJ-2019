@@ -10,6 +10,7 @@ public class SpawnController : MonoBehaviour
     public List<Transform> spawnPoints = new List<Transform>();
     [Tooltip("Assign pickables.")]
     public GameObject[] prefabs;
+    public float spawnTimer = 5;
 
     public void Awake()
     {
