@@ -107,8 +107,8 @@ public class PlayerMovement : MonoBehaviour
     {
         var castCenter = t.position + currentdirection + Vector3.up;
         var playerCenter = t.position + Vector3.up;
-        var hits = Physics.BoxCastAll(castCenter, new Vector3(3F, 2, 3F) / 2f, transform.forward, transform.rotation, 0.01f, hitLayer);
-        var hits2 = Physics.BoxCastAll(playerCenter, new Vector3(2.6F, 2, 2.6F) / 2f, transform.forward, transform.rotation, 0.01f, hitLayer);
+        var hits = Physics.BoxCastAll(castCenter, new Vector3(3F, 3, 3F) / 2f, transform.forward, transform.rotation, 0.01f, hitLayer);
+        var hits2 = Physics.BoxCastAll(playerCenter, new Vector3(2.6F, 3, 2.6F) / 2f, transform.forward, transform.rotation, 0.01f, hitLayer);
 
         var list = hits.ToList();
         list.AddRange(hits2);
@@ -128,6 +128,7 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("[Player] Drop item: " + target.name);
         var clipToPlay = AudioClipController.GetClip(ClipType.Drop, target.type);
         audio.PlayClip(clipToPlay);
+        target.GetComponent<Collider>().isTrigger = false;
         grabJoint.connectedBody = null;
         target = null;
     }
@@ -137,6 +138,7 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("[Player] Take item: " + hit.collider.name);
         grabJoint.connectedBody = hit.rigidbody;
         target = hit.collider.GetComponent<Pickable>();
+        target.GetComponent<Collider>().isTrigger = true;
         var clipToPlay = AudioClipController.GetClip(ClipType.PickUp, target.type);
         audio.PlayClip(clipToPlay);
     }
