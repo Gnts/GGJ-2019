@@ -11,19 +11,34 @@ public class SpawnController : MonoBehaviour
     [Tooltip("Assign pickables.")]
     public GameObject[] prefabs;
     public float spawnTimer = 5;
-
+    private float timePassed = 0f;
     public void Awake()
     {
-        foreach(Transform child in SpawnPointRoot)
+        foreach (Transform child in SpawnPointRoot)
             spawnPoints.Add(child);
     }
 
     public void Start()
     {
-        foreach(var t in spawnPoints)
+        foreach (var t in spawnPoints)
         {
-            Instantiate(prefabs[Random.Range(0, prefabs.Length)], t.position, Quaternion.Euler(-90, 0, 0));
+            SpawnPickable(t.position);
         }
     }
 
+    public void Update()
+    {
+        timePassed += Time.deltaTime;
+        if (timePassed > spawnTimer)
+        {
+            timePassed = 0f;
+            Transform t = spawnPoints[Random.Range(0, prefabs.Length)];
+            SpawnPickable(t.position);
+        }
+    }
+
+    void SpawnPickable(Vector3 position)
+    {
+        Instantiate(prefabs[Random.Range(0, prefabs.Length)], position + Vector3.up * Random.Range(0, 4), Random.rotation);
+    }
 }
