@@ -13,6 +13,7 @@ public class UI : MonoBehaviour
     public GameObject defeat;
     public GameObject timer;
     public TextMeshProUGUI itemsLeft;
+    public TextMeshProUGUI transitionTimer;
 
     void OnEnable()
     {
