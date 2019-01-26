@@ -20,6 +20,7 @@ public class Pickable : MonoBehaviour
     public Type type;
     [SerializeField]
     public int score;
+    public string displayName;
 
     public void OnEnable()
     {

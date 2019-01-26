@@ -43,6 +43,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   score: 9
+  displayName: Old Food
 --- !u!1001 &5427741559881605982
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -17,7 +17,10 @@ public class PlayerGUI : MonoBehaviour
     void Update()
     {
         if(ui == null) FetchUI();
-        ui.activeItemText.text = player.target != null ? player.target.name : "Empty hands!";
+        if (player.target && player.target.displayName != ui.activeItemText.text)
+        {
+            ui.activeItemText.text = player.target != null ? player.target.displayName : "Empty hands!";
+        }
     }
 
     void FetchUI()

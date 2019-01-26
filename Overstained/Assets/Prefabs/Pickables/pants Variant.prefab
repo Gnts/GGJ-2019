@@ -43,6 +43,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   score: 12
+  displayName: Pantaloons
 --- !u!1001 &6983818577471935889
 PrefabInstance:
   m_ObjectHideFlags: 0
