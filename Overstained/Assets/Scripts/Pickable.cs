@@ -9,7 +9,8 @@ public class Pickable : MonoBehaviour
     public enum Type
     {
         Trash,
-        Dishes
+        Dishes,
+        Clothes
     }
 
     [SerializeField]
