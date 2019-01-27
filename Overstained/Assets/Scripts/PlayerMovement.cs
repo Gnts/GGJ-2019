@@ -52,8 +52,9 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if (stepsSource.isPlaying)
-                stepsSource.Stop();
+            if(stepsSource != null)
+                if (stepsSource.isPlaying)
+                    stepsSource.Stop();
         }
 
         grabJoint.transform.position = t.position + currentdirection + Vector3.up * 2;
