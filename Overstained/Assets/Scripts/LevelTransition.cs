@@ -9,7 +9,7 @@ public class LevelTransition : MonoBehaviour
 
     public void TransitionToLevel()
     {
-        SceneManager.LoadScene($"Home_{Random.Range(1, 2)}");
+        SceneManager.LoadScene($"Home_{Random.Range(1, 3)}");
     }
 
     public void TransitionToMenu()
