@@ -13,12 +13,13 @@ public class ColisionAudio : MonoBehaviour
     {
         source = GetComponent<AudioSource>();
         source.playOnAwake = false;
+        source.spatialBlend = 0.6f;
         source.Stop();
     }
 
     void Update()
     {
-        timer -= Time.deltaTime;
+        timer += Time.deltaTime;
     }
 
     void OnEnable()
