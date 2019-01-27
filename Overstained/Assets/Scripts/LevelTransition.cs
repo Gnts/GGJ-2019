@@ -14,6 +14,7 @@ public class LevelTransition : MonoBehaviour
 
     void Update()
     {
+        /*
         transitionTime -= Time.deltaTime;
 
         UI.instance.transitionTimer.text = "Next level in: " + transitionTime.ToString("0");
@@ -22,6 +23,7 @@ public class LevelTransition : MonoBehaviour
         {
             TransitionToLevel();
         }
+        */
     }
 
     public void TransitionToLevel()
@@ -30,6 +32,12 @@ public class LevelTransition : MonoBehaviour
 
         // Example test :D this will just load the next scene under build settings
         // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
-        UI.instance.transitionTimer.text = "WE SHOULD CHANGE LEVEL. MATT HAS NOT IMPLEMENTED THIS YET!";
+        SceneManager.LoadScene($"Home_{Random.Range(1, 2)}");
+        //UI.instance.transitionTimer.text = "WE SHOULD CHANGE LEVEL. MATT HAS NOT IMPLEMENTED THIS YET!";
+    }
+
+    public void TransitionToMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }
