@@ -45,8 +45,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dishesPickup: {fileID: 8300000, guid: 42b5561fba3bd0a439d2916d70784058, type: 3}
   dishesDeliver: {fileID: 8300000, guid: 42b5561fba3bd0a439d2916d70784058, type: 3}
-  dishesDrop: {fileID: 8300000, guid: 42b5561fba3bd0a439d2916d70784058, type: 3}
+  dishesDrop: {fileID: 8300000, guid: ea3ad547098a447458b8ec22a54c1c25, type: 3}
   clothesPickup: {fileID: 8300000, guid: 42b5561fba3bd0a439d2916d70784058, type: 3}
-  clothesDeliver: {fileID: 8300000, guid: 42b5561fba3bd0a439d2916d70784058, type: 3}
-  clothesDrop: {fileID: 8300000, guid: 42b5561fba3bd0a439d2916d70784058, type: 3}
+  clothesDeliver: {fileID: 8300000, guid: 457f9f9caf554e44d914341fbccd317d, type: 3}
+  clothesDrop: {fileID: 8300000, guid: 457f9f9caf554e44d914341fbccd317d, type: 3}
+  trashPickup: {fileID: 8300000, guid: 42b5561fba3bd0a439d2916d70784058, type: 3}
+  trashDeliver: {fileID: 8300000, guid: f042b866b1f68f84a8226543b5a5fe21, type: 3}
+  trashDrop: {fileID: 8300000, guid: f042b866b1f68f84a8226543b5a5fe21, type: 3}
   actionClip: {fileID: 8300000, guid: 42b5561fba3bd0a439d2916d70784058, type: 3}

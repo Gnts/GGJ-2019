@@ -14,6 +14,11 @@ public class AudioClipController : MonoBehaviour
     public AudioClip clothesPickup;
     public AudioClip clothesDeliver;
     public AudioClip clothesDrop;
+
+    public AudioClip trashPickup;
+    public AudioClip trashDeliver;
+    public AudioClip trashDrop;
+
     public AudioClip actionClip;
 
     void OnEnable()
@@ -46,6 +51,16 @@ public class AudioClipController : MonoBehaviour
                 return instance.clothesPickup;
             if (clipType == ClipType.Drop)
                 return instance.clothesDrop;
+        }
+
+        if (pickableType == Pickable.Type.Trash)
+        {
+            if (clipType == ClipType.Deliver)
+                return instance.trashDeliver;
+            if (clipType == ClipType.PickUp)
+                return instance.trashPickup;
+            if (clipType == ClipType.Drop)
+                return instance.trashDrop;
         }
 
         if (pickableType == Pickable.Type.None)
