@@ -6,4 +6,5 @@ using UnityEngine;
 public class DeliveryPoint : MonoBehaviour
 {
     public Pickable.Type type;
+
 }

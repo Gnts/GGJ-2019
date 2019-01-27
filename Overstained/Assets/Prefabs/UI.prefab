@@ -265,6 +265,7 @@ MonoBehaviour:
   timer: {fileID: 3334810095401749484}
   itemsLeft: {fileID: 72635447351596798}
   transitionTimer: {fileID: 5350994890072372712}
+  IconHolder: {fileID: 0}
 --- !u!114 &7986901726040338444
 MonoBehaviour:
   m_ObjectHideFlags: 0
