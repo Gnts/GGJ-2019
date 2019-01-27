@@ -399,7 +399,7 @@ Camera:
   m_HDR: 1
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
+  m_ForceIntoRT: 1
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
@@ -612,7 +612,8 @@ AudioSource:
   m_GameObject: {fileID: 6849730326744598617}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243945694535482538, guid: 6805d6e4073caaf46a481945f67c1118,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 90b95719128ebef4db19074ce9f46268, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
