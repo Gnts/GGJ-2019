@@ -18,4 +18,9 @@ public class ScreenTransitioner : MonoBehaviour
         credits.SetActive(true);
         menu.SetActive(false);
     }
+
+    public void CloseGame()
+    {
+        Application.Quit();
+    }
 }
