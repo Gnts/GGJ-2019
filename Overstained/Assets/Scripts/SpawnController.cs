@@ -32,7 +32,7 @@ public class SpawnController : MonoBehaviour
         if (timePassed > spawnTimer)
         {
             timePassed = 0f;
-            Transform t = spawnPoints[Random.Range(0, prefabs.Length)];
+            Transform t = spawnPoints[Random.Range(0, prefabs.Length - 1)];
             SpawnPickable(t.position);
         }
     }
