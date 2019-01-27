@@ -8,6 +8,8 @@ public class PlayerGUI : MonoBehaviour
     private UI ui;
     private PlayerMovement player;
 
+    private const string EMPTY = "Empty Hands";
+
     void OnEnable()
     {
         ui = UI.instance;
@@ -18,13 +20,15 @@ public class PlayerGUI : MonoBehaviour
     {
         if(ui == null) FetchUI();
 
-        if (player.target != null && player.target.displayName != ui.activeItemText.text)
+        if (player.target == null)
         {
-            ui.activeItemText.text = player.target.displayName;
+            if (ui.activeItemText.text != EMPTY)
+                ui.activeItemText.text = EMPTY;
+            return;
         } else
         {
-            if (ui.activeItemText.text != "Empty Hands")
-                ui.activeItemText.text = "Empty Hands";
+            if (player.target.displayName != ui.activeItemText.text)
+                ui.activeItemText.text = player.target.displayName;
         }
     }
 
