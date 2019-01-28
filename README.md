@@ -6,6 +6,7 @@ Your home is a sacred space. Unfortunately, it is also a very filthy place. No m
 
 Check out webgl build on [itch.io](https://bengsfort.itch.io/overstained)
 
+Gameplay video on [youtube](https://youtu.be/e5ED1Kzrn8g)
 
 ## Credits
 Scripting, audio, ui
