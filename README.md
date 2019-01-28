@@ -16,11 +16,6 @@ Henri Viitanen @famerij
 Mathias Mäenpää
 Arhi Makkonen
 
-Furniture Assets
-https://kenney.nl/
+Furniture Assets: https://kenney.nl/
 
-Audio Assets
-
-https://freesound.org/
-
-https://www.assetstore.unity3d.com/en/?stay#!/content/135943
+Audio Assets: https://freesound.org/ and https://www.assetstore.unity3d.com/en/?stay#!/content/135943
