@@ -46,7 +46,12 @@ ModelImporter:
     10800002: Lamp.001
     10800004: Lamp.002
     10800006: Lamp.003
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 89edf9db83617a74f9b5986f659ee519, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
